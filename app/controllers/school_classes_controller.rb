@@ -11,17 +11,15 @@ class SchoolClassesController < ApplicationController
   end
 
   def show
-    @school_class = SchoolClass.find(params[:id])
+    find_class
   end
 
   def edit
-    @school_class = SchoolClass.find(params[:id])
+    find_class.update(post_params)
+    redirect_to school_class_path
   end
 
   def update
-    @school_class = SchoolClass.find(params[:id])
-    @school_class.update(post_params())
-    redirect_to school_class_path(@school_class)
   end
 
 # PRIVATE HELPERS
@@ -29,6 +27,10 @@ class SchoolClassesController < ApplicationController
 
   def post_params(*args)
     params.require(:school_class).permit(*args)
+  end
+
+  def find_class
+    @school_class = SchoolClass.find(params[:id])
   end
 
 end
