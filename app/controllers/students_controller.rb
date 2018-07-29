@@ -9,12 +9,16 @@ class StudentsController < ApplicationController
     redirect_to student_path(@student)
   end
 
+  def show
+  end
+
   def edit
     find_student
   end
 
   def update
     find_student.update(post_params)
+    redirect_to student_path
   end
 
   private
