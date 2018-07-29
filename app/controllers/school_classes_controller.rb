@@ -15,8 +15,9 @@ class SchoolClassesController < ApplicationController
   end
 
   def edit
-    find_class.update(post_params)
-    redirect_to school_class_path
+    @school_class = SchoolClass.find(params[:id])
+    @school_class.update(post_params)
+    redirect_to school_class_path(@school_class)
   end
 
   def update
@@ -27,10 +28,6 @@ class SchoolClassesController < ApplicationController
 
   def post_params(*args)
     params.require(:school_class).permit(*args)
-  end
-
-  def find_class
-    @school_class = SchoolClass.find(params[:id])
   end
 
 end
