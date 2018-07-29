@@ -15,11 +15,13 @@ class SchoolClassesController < ApplicationController
   end
 
   def edit
-    find_class.update(post_params)
-    redirect_to school_class_path
+    find_class
   end
 
   def update
+    find_class
+    find_class.update(post_params)
+    redirect_to school_class_path
   end
 
 # PRIVATE HELPERS
