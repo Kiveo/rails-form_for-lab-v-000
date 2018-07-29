@@ -16,7 +16,7 @@ class SchoolClassesController < ApplicationController
 
   def edit
     find_class.update(post_params)
-    redirect_to school_class_path(@school_class)
+    redirect_to school_class_path
   end
 
   def update
