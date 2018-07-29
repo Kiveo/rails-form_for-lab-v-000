@@ -28,4 +28,9 @@ class StudentsController < ApplicationController
   def post_params(*args)
     params.require(:student)
   end
+
+  def find_student
+    @student = Student.find(params[:id])
+  end 
+  
 end
