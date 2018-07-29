@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    find_student
+
   end
 
   def edit
